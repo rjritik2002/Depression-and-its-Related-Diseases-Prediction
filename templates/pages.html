@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Levels</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+
+        .heading {
+            font-size: 2.5em;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            cursor: pointer;
+            color: #fff;
+            padding: 3px 6em;
+            border-radius: 100px;
+            background: rgb(2, 0, 36);
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(76, 213, 182, 1) 0%, rgba(0, 212, 255, 1) 100%);
+        }
+
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .block {
+            background: #000;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            width: 30%;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .block:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .low-level {
+            border: 5px solid #d3eaff;
+        }
+
+        .mid-level {
+            border: 5px solid #d3eaff;
+        }
+
+        .high-level {
+            border: 5px solid #d3eaff;
+        }
+
+        .h2-l {
+            color: #000;
+            border-radius: 100px;
+            padding: 4px;
+            background: rgb(103, 232, 103);
+        }
+        .h2-m {
+            color: #000;
+            border-radius: 100px;
+            padding: 4px;
+            background: rgb(246, 246, 96);
+        }
+        .h2-h {
+            color: #000;
+            border-radius: 100px;
+            padding: 4px;
+            background: red;
+        }
+
+        p {
+            color: #555;
+            font-size: 1em;
+        }
+
+        ol {
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        ol li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e0e0e0;
+            
+            border-radius: 4px;
+            position: relative;
+        }
+
+        ol li:before {
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="heading">Medications and Precautions</h1>
+    <div class="container">
+        <div class="block low-level">
+            <h2 class="h2-l">Low-Level Depression</h2>
+            <p id="low-text">
+            <ol>
+                <li>Regular exercise</li>
+                <li>Healthy diet</li>
+                <li>Sufficient sleep</li>
+                <li>Mindfulness meditation</li>
+                <li>Socializing with friends and family</li>
+                <li>Journaling</li>
+                <li>Practicing gratitude</li>
+                <li>Engaging in hobbies</li>
+                <li>Limiting alcohol and caffeine</li>
+                <li>Setting and achieving small goals</li>
+            </ol>
+            </p>
+        </div>
+        <div class="block mid-level">
+            <h2 class="h2-m">Mid-Level Depression</h2>
+            <p id="mid-text">
+            <ol>
+                <li>Cognitive Behavioral Therapy (CBT)</li>
+                <li>Talk therapy with a counselor</li>
+                <li>Light therapy</li>
+                <li>Joining a support group</li>
+                <li>Practicing relaxation techniques</li>
+                <li>Engaging in creative activities</li>
+                <li>Spending time in nature</li>
+                <li>St. John’s Wort (herbal supplement)</li>
+                <li>Omega-3 fatty acids supplements</li>
+                <li>Acupuncture</li>
+            </ol>
+            </p>
+        </div>
+        <div class="block high-level">
+            <h2 class="h2-h">High-Level Depression</h2>
+            <p id="high-text">
+            <ol>
+                <li>Antidepressant medications (SSRIs, SNRIs, etc.)</li>
+                <li>Psychotherapy with a licensed therapist</li>
+                <li>Electroconvulsive therapy (ECT)</li>
+                <li>Transcranial magnetic stimulation (TMS)</li>
+                <li>Hospitalization or inpatient care</li>
+                <li>Ketamine infusions</li>
+                <li>Intensive outpatient programs (IOP)</li>
+                <li>Dialectical behavior therapy (DBT)</li>
+                <li>MAOIs or tricyclic antidepressants</li>
+                <li>Cognitive remediation therapy</li>
+            </ol>
+
+            </p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Example: You can use JavaScript to dynamically change content or add interactivity
+            const lowText = document.getElementById('low-text');
+            const midText = document.getElementById('mid-text');
+            const highText = document.getElementById('high-text');
+
+            lowText.addEventListener('click', () => {
+                alert('You clicked on Low-Level Depression');
+            });
+
+            midText.addEventListener('click', () => {
+                alert('You clicked on Mid-Level Depression');
+            });
+
+            highText.addEventListener('click', () => {
+                alert('You clicked on High-Level Depression');
+            });
+        });        
+    </script>
+</body>
+
+</html>

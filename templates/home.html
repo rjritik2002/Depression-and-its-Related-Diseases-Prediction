@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(76, 213, 182, 1) 0%, rgba(0, 212, 255, 1) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section h1 {
+            font-size: 6em;
+            margin: 0;
+            padding: 0;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: textPopUp 2s ease;
+        }
+
+        .hero-section p {
+            font-size: 1.5em;
+            margin: 20px 0 40px;
+            z-index: 1;
+            animation: textFadeIn 3s ease;
+        }
+
+        .hero-section a {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: white;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            z-index: 1;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: buttonPopUp 3s ease;
+        }
+
+        .hero-section a:hover {
+            background-color: #764ba2;
+            color: white;
+        }
+
+        .cube {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            animation: rotate 20s infinite linear;
+            z-index: 0;
+        }
+
+        .cube:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 20%;
+            animation-duration: 25s;
+        }
+
+        .cube:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            top: 70%;
+            left: 50%;
+            animation-duration: 15s;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes textPopUp {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes textFadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes buttonPopUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .accuracy-section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #000000;
+        }
+
+        .accuracy-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .chart-block {
+            background: #ffffff;
+            border: 2px solid #281111;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .chart-block canvas {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+        }
+
+        img {
+            margin-top: -30px;
+            width: 200px;
+            height: 220px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero-section">
+        <img src="/static/images/brain.png" alt="images">
+        <h1>Depression Analyzer</h1>
+        <p>Accurately Predict and Analyze Depression</p>
+        <a href="{{ url_for('homePage') }}" target="_blank">Go To Services</a>
+        <div class="cube" style="top: 20%; left: 10%;"></div>
+        <div class="cube" style="top: 60%; left: 70%;"></div>
+        <div class="cube" style="top: 40%; left: 40%;"></div>
+    </section>
+
+    <section class="accuracy-section" id="accuracy">
+        <h2 style="margin-bottom: 50px;">Prediction Accuracy</h2>
+        <div class="chart-container">
+            <div class="chart-block">
+                <h3>Depression Prediction</h3>
+                <canvas id="depressionChart"></canvas>
+            </div>
+            <div class="image">
+                <img style="height: 300px; width: 300px"; src="/static/images/piechart.png" alt="piechart">
+            </div>
+            <div class="chart-block">
+                <h3>Disease Prediction</h3>
+                <canvas id="diseaseChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const createDoughnutChart = (ctx, accuracy) => {
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [accuracy, 100 - accuracy],
+                        backgroundColor: ['#5bc0de', '#f44336'], // Light blue for accuracy, red for error
+                        hoverBackgroundColor: ['#5bd8de', '#ef5350']
+                    }],
+                    labels: ['Accuracy', 'Error']
+                },
+                options: {
+                    responsive: true,
+                    cutoutPercentage: 80, // Adjust as needed for the doughnut size
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    },
+                }
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const depressionCtx = document.getElementById('depressionChart').getContext('2d');
+            const diseaseCtx = document.getElementById('diseaseChart').getContext('2d');
+
+            // Replace with actual accuracy values
+            const depressionAccuracy = 97;
+            const diseaseAccuracy = 95;
+
+            createDoughnutChart(depressionCtx, depressionAccuracy);
+            createDoughnutChart(diseaseCtx, diseaseAccuracy);
+        });
+    </script>
+</body>
+
+</html>

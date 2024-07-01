@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Ubuntu&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/afea27c44a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="static/images/brain.png">
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about-project">About Project</a></li>
+                        <li><a href="#motivation">Motivation</a></li>
+                        <li><a href="#technologies">Technologies</a></li>
+                        <li><a href="#contact-us">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <img src="static/images/menu.png" class="menu-icon" onclick="menutoggle()">
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <h1>Depression<br> Analyzer</h1>
+                    <p>Depression (major depressive disorder) is a common and serious medical illness that negatively
+                        affects how you feel, the way you think and how you act. Fortunately, it is also treatable.
+                        Depression causes feelings of sadness and/or a loss of interest in activities you once enjoyed.
+                        It can lead to a variety of emotional and physical problems and can decrease your ability to
+                        function at work and at home.</p>
+                    <!-- <a href="{{ url_for('depression') }}" class="btn" target="_blank">Predict Depression &#8594;</a> -->
+                </div>
+                <div class="col-2">
+                    <img src="static/images/depression.gif" alt="brain">
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="services-section">
+        <h2 style="color: white;">TEST 2.O</h2>
+        <div class="service-block">
+            <h3 style="color: white;">Depression Prediction</h3>
+            <img class="brain" src="/static/images/brain.png" alt="brain">
+            <a href="{{ url_for('depression') }}" class="btn" target="_blank">Predict Depression &#8594;</a>
+        </div>
+    </section>
+    <hr>
+
+    <h1 class="title" id="about-project" style="margin-top: 20px;">About Project</h1>
+    <div class="box">
+        <div class="lines">
+            <div class="line">
+                <h3 style="color: white;"> Abstract </h3> <br>
+                <p style="margin-top: 0px;">Depression is a wide internal health concern that frequently co-occurs
+                    with colorful physical
+                    conditions, emphasizing the need for an intertwined approach to healthcare. This exploration
+                    report delves into the operation of machine and deep learning ways to predict both depression
+                    and related physical conditions. By analyzing different datasets comprising medical records,
+                    cerebral assessments, and life factors, the study aims to develop predictive models that offer
+                    early intervention and acclimatized care, eventually perfecting patient issues and healthcare
+                    resource allocation. Using the power of advanced machine learning and deep learning ways, this
+                    paper focuses on two critical aspects of patient care the early discovery of depression and the
+                    prediction of affiliated physical conditions. Through the integration of different healthcare
+                    data sources, including electronic health records, inheritable labels, and life data, the paper
+                    has developed accurate and robust predictive models for both depression and physical conditions.
+                    The presented ensemble double classifier performed comparably better than each birth algorithm
+                    in all measures and all trials. We trained the ensemble model on the reused NHANES dataset,
+                    tested, and estimated the results of its performance against internal screen force and bandied
+                    the similar prognostications.
+                    <br>
+                    Keywords — Major depressive disorder, Ensemble classifier, Supervised machine learning
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="title" id="motivation" style="margin-top: 20px;">Motivation</h1>
+    <div class="box">
+        <div class="lines">
+            <div class="line">
+                <p style="margin-top: 0px;">
+                    🔵Develop predictive models to identify individuals at risk of depression, allowing for early
+                    intervention and tailored support.
+                    <br>
+                    🔵Reduce the strain on healthcare systems by addressing mental health issues proactively, improving
+                    patient outcomes, and combatting mental health stigma.
+                    <br>
+                    🔵Generate valuable data-driven insights to inform evidence-based healthcare policies, promoting a
+                    healthier and happier society.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="title" id="technologies" style="margin-top: 80px; margin-bottom: 0px">Technology we used</h2>
+        <div class="container">
+            <div class="row" style="margin-left: 34px;">
+                <div class="col-2" style="margin-top: 10px;">
+                    <h3 style="font-size: 40px;">Machine Learning</h3>
+                    <p style="font-size: 16px; margin-bottom: 12px">Machine learning is a branch of artificial
+                        intelligence that enables systems to
+                        automatically learn and improve from experience without being explicitly programmed. It
+                        involves
+                        algorithms that learn patterns and make predictions or decisions based on data. By analyzing
+                        large
+                        datasets, machine learning algorithms can uncover insights and make predictions or decisions
+                        with
+                        high accuracy. It is widely used in various fields, including image recognition, natural
+                        language
+                        processing, and recommendation systems.</p>
+                    <a href="#" class="btn">See More &#8594;</a>
+                </div>
+                <div class="col-2">
+                    <img src="/static/images/machine_learning.png" alt="brain" width="400" height="400"
+                        style="margin-left: 140px">
+                </div>
+            </div>
+            <hr>
+            <div class="row" style="margin-left: 34px; ">
+                <div class="col-2">
+                    <img src="/static/images/tensorflow.png" alt="brain" width="400" height="400">
+                </div>
+                <div class="col-2" style="margin-top: 10px;">
+                    <h3 style="font-size: 40px;">TensorFlow</h3>
+                    <p style="font-size: 16px; margin-bottom: 12px">TensorFlow plays a pivotal role in the project
+                        "Depression and Disease Prediction Using Machine and Deep Learning." It serves as the core
+                        technology for developing, training, and deploying machine and deep learning models with a
+                        primary focus on predicting depression and related physical diseases. Data preprocessing is
+                        another key area where TensorFlow is employed, enabling feature scaling, data augmentation,
+                        and normalization to prepare the data for model training. </p>
+                    <a href="#" class="btn">See More &#8594;</a>
+                </div>
+            </div>
+            <hr>
+            <div class="row" style="margin-left: 34px;">
+                <div class="col-2" style="margin-top: 10px;">
+                    <h3 style="font-size: 40px;">Python</h3>
+                    <p style="font-size: 16px; margin-bottom: 12px">Python serves as the cornerstone of the project
+                        "Depression Analyzer." It is used throughout the project's lifecycle, providing a flexible
+                        and powerful programming environment for various tasks. In model development, Python is
+                        indispensable for creating machine and deep learning models that are designed to detect
+                        depression and predict related physical diseases. These models include intricate neural
+                        network architectures, and Python's extensive support for deep learning frameworks like
+                        TensorFlow and PyTorch ensures the implementation of complex model structures tailored to
+                        healthcare data.</p>
+                    <a href="#" class="btn">See More &#8594;</a>
+                </div>
+                <div class="col-2">
+                    <img src="/static/images/python.png" alt="brain" width="400" height="400"
+                        style="margin-left: 140px">
+                </div>
+            </div>
+            <hr>
+            <div class="row" style="margin-left: 34px;">
+                <div class="col-2">
+                    <img src="/static/images/flask.png" alt="brain" width="400" height="400">
+                </div>
+                <div class="col-2" style="margin-top: 10px;">
+                    <h3 style="font-size: 40px;">Flask</h3>
+                    <p style="font-size: 16px; margin-bottom: 12px">Flask, a micro web framework for Python, plays a
+                        crucial role in the project "Depression Aalyzer”. It serves as the primary tool for
+                        developing web-based applications to deploy predictive models and make them accessible to
+                        healthcare professionals and end-users.
+                        One of the key applications of Flask in the project is the creation of web interfaces that
+                        allow healthcare professionals or patients to interact with the predictive models in
+                        real-time. These web applications provide user-friendly interfaces where medical
+                        practitioners can input patient data and receive predictions regarding depression risk and
+                        the likelihood of related physical diseases. </p>
+                    <a href="#" class="btn">See More &#8594;</a>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+
+
+        <!-- ----Testimonial section---- -->
+        <h1 class="title" style="margin-top: 80px; margin-bottom: 0px">Testimonial</h2>
+
+            <div class="testimonial">
+                <div class="small-container">
+                    <div class="row">
+                        <div class="col-3">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo beatae assumenda
+                                expedita!
+                                Optio id vero labore illo nobis nisi. In est maiores expedita mollitia hic?</p>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                            <img src="static/images/user-1.png" alt="">
+                            <h3>Sean Parker</h3>
+                        </div>
+
+                        <div class="col-3">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo beatae assumenda
+                                expedita!
+                                Optio id vero labore illo nobis nisi. In est maiores expedita mollitia hic?</p>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <img src="static/images/user-2.png">
+                            <h3>Mike Smith</h3>
+                        </div>
+
+                        <div class="col-3">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo beatae assumenda
+                                expedita!
+                                Optio id vero labore illo nobis nisi. In est maiores expedita mollitia hic?</p>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                            <img src="static/images/user-3.png">
+                            <h3>Mabel Joe</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---Brands--- -->
+            <div class="brands">
+                <div class="small-container">
+                    <div class="row">
+                        <div class="col-5">
+                            <img src="static/images/logo-godrej.png">
+                        </div>
+                        <div class="col-5">
+                            <img src="static/images/logo-oppo.png">
+                        </div>
+                        <div class="col-5">
+                            <img src="static/images/logo-coca-cola.png">
+                        </div>
+                        <div class="col-5">
+                            <img src="static/images/logo-paypal.png">
+                        </div>
+                        <div class="col-5">
+                            <img src="static/images/logo-philips.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- -----Footer----- -->
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col-1">
+                            <h3>Download Our App</h3>
+                            <p>Download App for Android and ios Mobile Phone</p>
+                            <div class="app-logo">
+                                <img src="static/images/play-store.png">
+                                <img src="static/images/app-store.png">
+                            </div>
+                        </div>
+                        <div class="footer-col-2">
+                            <img src="static/images/brain.png">
+                            <p>Our Purpose Is To Develop predictive models to identify individuals at risk of
+                                depression, allowing for early intervention and tailored support.
+                            </p>
+                        </div>
+                        <div class="footer-col-3">
+                            <h3>Useful Links</h3>
+                            <ul>
+                                <li>Coupons</li>
+                                <li>Blog Post</li>
+                                <li>Return Policy</li>
+                                <li>Join Affiliate</li>
+                            </ul>
+                        </div>
+                        <div class="footer-col-4">
+                            <h3>Follow Us</h3>
+                            <ul>
+                                <li>Facebook</li>
+                                <li>Twitter</li>
+                                <li>Instagram</li>
+                                <li>Youtube</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+                    <p class="copyright">Copyright &copy; 2024 Ritik</p>
+                </div>
+            </div>
+            <!-- JS for toggle menu -->
+            <script>
+                var MenuItems = document.getElementById("MenuItems");
+
+                MenuItems.style.maxHeight == "0px"
+                function menutoggle() {
+                    if (MenuItems.style.maxHeight == "0px") {
+                        MenuItems.style.maxHeight = "200px";
+                    }
+                    else {
+                        MenuItems.style.maxHeight = "0px";
+                    }
+                }
+            </script>
+</body>
+
+</html>
